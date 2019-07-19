@@ -670,7 +670,7 @@ int cardEffect_Ambassador(int currentPlayer, int choice1, int choice2, struct ga
 
 	j = 0;		//used to check if player has enough cards to discard
 	for (i = 0; i < state->handCount[currentPlayer]; i++) {
-		if (i = handPos && i == state->hand[currentPlayer][choice1] && i != choice1) {		// Bug - changed != to =
+		if ((i != handPos) && (i == state->hand[currentPlayer][choice1]) && (i != choice1)) {		// Bug - changed != to =
 			j++;
 		}
 	}
@@ -899,7 +899,7 @@ int cardEffect_Tribute(int currentPlayer, int nextPlayer, struct gameState* stat
 	return 0;
 }
 
-cardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
+int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
 {
   int i;
   int j;
